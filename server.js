@@ -32,9 +32,6 @@ const Book = mongoose.model('Book', {
   "text_reviews_count": Number
 })
 
-const Author = mongoose.model("Author", {
-  "authors": String
-})
 
 
 if (process.env.RESET_DB) {
