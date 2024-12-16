@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import booksData from "./data/books.json"
+/* import booksData from "./data/books.json" */
 
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
