@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 /* import booksData from "./data/books.json" */
 
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
+const mongoUrl = process.env.MONGO_URL;
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
@@ -17,6 +17,12 @@ const app = express();
 // Add middlewares to enable cors and json body parsing
 app.use(cors());
 app.use(express.json());
+
+
+//Check if mongo is connected
+mongoose.connect(mongoUrl)
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => console.error("Failed to connect to MongoDB:", err));
 
 
 const Book = mongoose.model('Book', {
@@ -45,6 +51,7 @@ if (process.env.RESET_DB) {
 
   seedDatabase()
 }
+
 
 
 // Home page - first route
