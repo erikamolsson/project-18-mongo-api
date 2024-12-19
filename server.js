@@ -5,7 +5,7 @@ import expressListEndpoints from "express-list-endpoints";
 import booksData from "./data/books.json"
 
 
-const mongoUrl = process.env.MONGO_URL;
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
