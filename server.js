@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
+import expressListEndpoints from "express-list-endpoints";
 /* import booksData from "./data/books.json" */
 
 
@@ -152,7 +153,7 @@ app.get("/books/authors/:author", async (req, res) => {
 });
 
 // test
-app.get("/test", (request, response) => {
+app.get("/test", (req, res) => {
   response.send("Yesbox!");
   console.log("Yesbox!");
 });
