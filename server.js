@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
 import expressListEndpoints from "express-list-endpoints";
-/* import booksData from "./data/books.json" */
+import booksData from "./data/books.json"
 
 
 const mongoUrl = process.env.MONGO_URL;
@@ -45,8 +45,8 @@ if (process.env.RESET_DB) {
   const seedDatabase = async () => {
     await Book.deleteMany({})
 
-    data.forEach((booksData) => {
-      new Book(booksData).save()
+    booksData.forEach((book) => {
+      new Book(book).save()
     })
   }
 
