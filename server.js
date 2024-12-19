@@ -57,6 +57,18 @@ if (process.env.RESET_DB) {
 // Home page - first route
 app.get("/", (req, res) => {
   res.send("Welcome to the website where you can find your favourite book!");
+
+  const endpoints = expressListEndpoints(app);
+  response.json({
+    message: "Welcome to the Elves API! Here are the available endpoints:",
+    description: {
+      "/books": "all books",
+      "/books/pages": "by number of pages",
+      "/books/:bookID": "by ID",
+      "/test": "Test endpoint",
+    },
+    endpoints: endpoints
+  });
 });
 
 // Route with all the books - full API
@@ -139,7 +151,11 @@ app.get("/books/authors/:author", async (req, res) => {
   }
 });
 
-
+// test
+app.get("/test", (request, response) => {
+  response.send("Yesbox!");
+  console.log("Yesbox!");
+});
 
 
 // Start the server
