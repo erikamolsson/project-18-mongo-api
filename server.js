@@ -8,7 +8,7 @@ import booksData from "./data/books.json"
 dotenv.config()
 
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/project-mongo";
+const mongoUrl = process.env.MONGO_URL || "https://project-18-mongo-api.onrender.com/ ";
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
