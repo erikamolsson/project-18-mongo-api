@@ -8,14 +8,14 @@ import booksData from "./data/books.json"
 dotenv.config()
 
 
-const mongoUrl = process.env.MONGO_URL || "https://project-18-mongo-api.onrender.com/ ";
+const mongoUrl = process.env.MONGO_URL;
 mongoose.connect(mongoUrl);
 mongoose.Promise = Promise;
 
 // Defines the port the app will run on. Defaults to 8080, but can be overridden
 // when starting the server. Example command to overwrite PORT env variable value:
 // PORT=9000 npm start
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 7777;
 const app = express();
 
 // Add middlewares to enable cors and json body parsing
@@ -63,8 +63,8 @@ app.get("/", (req, res) => {
   res.send("Welcome to the website where you can find your favourite book!");
 
   const endpoints = expressListEndpoints(app);
-  response.json({
-    message: "Welcome to the Elves API! Here are the available endpoints:",
+  res.json({
+    message: "Here are the available endpoints:",
     description: {
       "/books": "all books",
       "/books/pages": "by number of pages",
